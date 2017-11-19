@@ -9,6 +9,7 @@ import NavigationBar from '../NavigationBar';
 import TabNavigator from 'react-native-tab-navigator';
 import PopularPage from './PopularPage';
 import AsyncStorageTest from './AsyncStorageTest';
+import MyPage from './my/MyPage';
 export default class HomePage extends Component{
 	constructor(props){
 		super(props);
@@ -55,7 +56,7 @@ export default class HomePage extends Component{
 						selectedTitleStyle={{color: '#2196F3'}}
 						onPress={() => this.setState({ selectedTab: 'shouchang' })}
 					>
-					<PopularPage />
+					<MyPage />
 					</TabNavigator.Item>
 					<TabNavigator.Item
 						selected={this.state.selectedTab == "member"}
