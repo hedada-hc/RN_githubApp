@@ -6,7 +6,9 @@ import {
 	Clipboard,
 	Alert
 } from 'react-native';
-
+import NavigationBar from '../../NavigationBar';
+import CustomKeyPage from './CustomKeyPage';
+import SortKeyPage from './SortKeyPage';
 export default class MyPage extends Component{
 	constructor(props){
 		super(props);
@@ -31,13 +33,24 @@ export default class MyPage extends Component{
 	render(){
 		return(
 			<View>
-                <Text onPress={this._setClipboardContent}
-                      style={{color: 'blue',marginTop:100}}>
-                    Tap to put "Hello World" in the clipboard
-                </Text>
-                <Text style={{color: 'red', marginTop: 20}}>
-                    {this.state.content}
-                </Text>
+                <NavigationBar title={"我的"} style={{backgroundColor: '#2196F3'}} />
+                <Text
+                	onPress={() => {
+                		this.props.navigator.push({
+                			component:CustomKeyPage,
+                			params:{...this.props}
+                		})
+                	}}
+                >自定义标签页</Text>
+
+                <Text
+                	onPress={() => {
+                		this.props.navigator.push({
+                			component:SortKeyPage,
+                			params:{...this.props}
+                		})
+                	}}
+                >自定义标签页</Text>
             </View>
 		)
 	}
